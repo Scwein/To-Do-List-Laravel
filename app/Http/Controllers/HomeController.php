@@ -18,15 +18,15 @@ class HomeController extends Controller
         'min' => 'Минимальная длина 6 символов'
         ];
 
-        $validated = request()->validate([
-        'task' => 'required|min:6'
+        request()->validate([
+            'task' => 'required|min:6'
         ], $messages);
 
         $task = new Task([
             'task_desc' => request('task'),
         ]);
         $task->save();
-        
+
         return redirect('/');
     }
 
