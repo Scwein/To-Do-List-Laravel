@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class MainController extends Controller
 {   
     public function index()
     {
@@ -20,7 +20,7 @@ class TaskController extends Controller
         ];
 
         $request->validate([
-            'task' => 'required|min:6'
+            'task' => 'required|min:6|max:255'
         ], $messages);
         
         $task = new Task([
